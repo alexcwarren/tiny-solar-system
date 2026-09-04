@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://x8u0ccqbwf77"]
+
+[ext_resource type="Script" uid="uid://ebrpuik0l4un" path="res://scenes/celestial/celestial_body.gd" id="1_5xf75"]
+[ext_resource type="Texture2D" uid="uid://b05kb364ryxs4" path="res://assets/textures/gas_giant_texture.png" id="2_ky02s"]
+[ext_resource type="PackedScene" uid="uid://cncj6gd8yq3e0" path="res://addons/debugger_camera/debugger_preview.tscn" id="3_ky02s"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_o6p22"]
+
+[node name="CelestialBody" type="Node3D" unique_id=501946359]
+script = ExtResource("1_5xf75")
+body_radius = 15.0
+body_color = Color(0.43529412, 0.53333336, 0.4392157, 1)
+surface_texture = ExtResource("2_ky02s")
+
+[node name="DebuggerPreview" parent="." unique_id=2042504187 instance=ExtResource("3_ky02s")]
+
+[node name="AxialTilt" type="Node3D" parent="." unique_id=858891127]
+
+[node name="Mesh" type="MeshInstance3D" parent="AxialTilt" unique_id=802035087]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("SphereMesh_o6p22")

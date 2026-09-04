@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cncj6gd8yq3e0"]
+
+[ext_resource type="Script" uid="uid://dr76ys5a138ox" path="res://addons/debugger_camera/debugger_preview.gd" id="1_ld4fi"]
+
+[node name="DebuggerPreview" type="Node" unique_id=2042504187]
+script = ExtResource("1_ld4fi")

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b1o4ww5g7450f"]
+
+[ext_resource type="Script" uid="uid://bh87tkkfh0rqj" path="res://addons/debugger_camera/debugger_camera.gd" id="1_e7814"]
+
+[node name="DebuggerCamera" type="Node3D" unique_id=260173372]
+script = ExtResource("1_e7814")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1491788314]
+
+[node name="DebugLight" type="DirectionalLight3D" parent="." unique_id=1547407992]
+transform = Transform3D(0.8660254, 0.35355338, -0.35355338, 0, 0.70710677, 0.70710677, 0.5, -0.6123724, 0.6123724, 0, 0, 0)

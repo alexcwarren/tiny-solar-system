@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dhn8ufgvc58d3"]
+
+[ext_resource type="Script" uid="uid://dnkw01ar4tbx2" path="res://main/main.gd" id="1_53q0u"]
+[ext_resource type="PackedScene" uid="uid://x8u0ccqbwf77" path="res://scenes/celestial/celestial_body.tscn" id="2_pjrb6"]
+[ext_resource type="Texture2D" uid="uid://e3odv82as2aj" path="res://assets/textures/starfield.png" id="3_3wy1v"]
+[ext_resource type="PackedScene" uid="uid://dtyuebmpha7ng" path="res://scenes/celestial/sun.tscn" id="3_c651c"]
+[ext_resource type="PackedScene" uid="uid://cncj6gd8yq3e0" path="res://addons/debugger_camera/debugger_preview.tscn" id="3_xwkvk"]
+[ext_resource type="Script" uid="uid://21f0r1u3h34w" path="res://scripts/simulation_clock.gd" id="6_kfbq2"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_kfbq2"]
+panorama = ExtResource("3_3wy1v")
+
+[sub_resource type="Sky" id="Sky_4dugh"]
+sky_material = SubResource("PanoramaSkyMaterial_kfbq2")
+
+[sub_resource type="Environment" id="Environment_c651c"]
+background_mode = 2
+background_color = Color(0.03483743, 0.034828927, 0.06701466, 1)
+sky = SubResource("Sky_4dugh")
+ambient_light_source = 2
+ambient_light_energy = 0.0
+
+[node name="Main" type="Node3D" unique_id=97708528]
+script = ExtResource("1_53q0u")
+
+[node name="DebuggerPreview" parent="." unique_id=2042504187 instance=ExtResource("3_xwkvk")]
+light_on = false
+starting_position = Vector3(100, 10, 200)
+
+[node name="SimulationClock" type="Node" parent="." unique_id=840572189]
+script = ExtResource("6_kfbq2")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=841352021]
+environment = SubResource("Environment_c651c")
+
+[node name="Sun" parent="." unique_id=501946359 node_paths=PackedStringArray("simulation_clock") instance=ExtResource("3_c651c")]
+simulation_clock = NodePath("../SimulationClock")
+emission_color = Color(0.9667031, 0.8777121, 0.44807756, 1)
+
+[node name="Planet1" parent="." unique_id=1464847844 node_paths=PackedStringArray("orbit_parent", "simulation_clock") instance=ExtResource("2_pjrb6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+rotation_period = 10.0
+axial_tilt = -15.0
+orbit_parent = NodePath("../Sun")
+orbital_radius = 500.0
+orbital_period = 50.0
+simulation_clock = NodePath("../SimulationClock")
+
+[node name="Moon1" parent="Planet1" unique_id=651952029 node_paths=PackedStringArray("orbit_parent", "simulation_clock") instance=ExtResource("2_pjrb6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+body_radius = 5.0
+body_color = Color(0.17641911, 0.17641908, 0.17641908, 1)
+surface_texture = null
+rotates = false
+orbit_parent = NodePath("..")
+orbital_radius = 50.0
+orbital_period = 15.0
+simulation_clock = NodePath("../../SimulationClock")
+
+[node name="Planet2" parent="." unique_id=1456188418 node_paths=PackedStringArray("orbit_parent", "simulation_clock") instance=ExtResource("2_pjrb6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+body_radius = 10.0
+surface_texture = null
+rotates = false
+orbit_parent = NodePath("../Sun")
+orbital_radius = 200.0
+orbital_period = 25.0
+simulation_clock = NodePath("../SimulationClock")

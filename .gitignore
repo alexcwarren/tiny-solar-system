@@ -1,0 +1,22 @@
+# Godot 4 generated cache and imported resources
+.godot/
+
+# Generated Android custom build project
+/android/
+
+# Machine-specific editor configuration
+.vscode/
+
+# Godot-generated translation resources
+*.translation
+
+# C# / Mono generated files (harmless if you are not using C# yet)
+.mono/
+data_*/
+mono_crash.*.json
+
+# Export credentials can contain signing secrets
+export_credentials.cfg
+
+# Godot/editor temporary files
+*.tmp

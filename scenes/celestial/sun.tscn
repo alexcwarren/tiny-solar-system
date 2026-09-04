@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dtyuebmpha7ng"]
+
+[ext_resource type="PackedScene" uid="uid://x8u0ccqbwf77" path="res://scenes/celestial/celestial_body.tscn" id="1_ex8qc"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_xwnvy"]
+
+[node name="Sun" unique_id=501946359 instance=ExtResource("1_ex8qc")]
+body_radius = 50.0
+body_color = Color(0.7921675, 0.39035392, 0.20959604, 1)
+surface_texture = null
+rotates = false
+orbital_radius = 0.0
+orbital_period = 0.0
+emission_enabled = true
+emission_color = Color(0.99999994, 0.79432285, 0.3768269, 1)
+
+[node name="DebuggerPreview" parent="." index="0" unique_id=2042504187]
+light_on = false
+
+[node name="Mesh" parent="AxialTilt" parent_id_path=PackedInt32Array(858891127) index="0" unique_id=802035087]
+mesh = SubResource("SphereMesh_xwnvy")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2" unique_id=385178145]
+light_energy = 4.0
+shadow_enabled = true
+omni_range = 2000.0
+omni_attenuation = 0.0
